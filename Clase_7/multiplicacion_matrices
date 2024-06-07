@@ -1,0 +1,38 @@
+# Nombre: Marcos
+# Apellido: Provenzano
+# Division: 112
+
+                                ############################################
+                                ###                                      ###        
+# LINK DE EXPLICACION -->       ###     https://youtu.be/pFn8GayMqTY     ###
+                                ###                                      ###
+                                ############################################
+
+def validar_multiplicacion(matriz_a, matriz_b):
+    if len(matriz_a[0]) == len(matriz_b):
+        return True
+
+def multiplicar_m(a, b):  
+    if validar_multiplicacion(a, b):
+        m_c = [[0]*len(m_b) for _ in range(len(m_a[0]))]  
+
+        # 3 veces
+        for i in range(len(a)): 
+            # 2 veces
+            for j in range(len(b[0])):
+                # 4 veces
+                for k in range(len(a[0])):
+                    m_c[i][j] += a[i][k] * b[k][j]
+    return m_c
+
+m_a = [[5, 2, 6, 4],
+    [3, 8, 3, 6],
+    [5, 3, 2, 2]]
+
+m_b = [[6, 4],
+    [3, 2],
+    [2, 2],
+    [2, 2]]
+
+resultado = multiplicar_m(m_a, m_b)
+print(resultado)

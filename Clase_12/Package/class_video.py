@@ -1,0 +1,46 @@
+from datetime import datetime
+
+class Video:
+    def __init__(self, titulo: str, vistas: int, tiempo: int, url_youtube: str, fecha_lanzamiento: str):
+        self.titulo = titulo
+        self.vistas = vistas
+        self.tiempo = tiempo
+        self.url_youtube = url_youtube
+        self.fecha_lanzamiento = fecha_lanzamiento
+        self.sesion = None
+        self.colaborador = None
+        self.codigo_url = None
+        
+    def mostrar_tema(self):
+        #Agregar los datos pertinentes para que a la hora de mostrar se vean los datos completos del video
+        print(f"Titulo: {self.titulo}")
+        print(f"Vistas: {self.vistas}")
+        print(f"Duración: {self.tiempo} segundos")
+        print(f"URL de YouTube: {self.url_youtube}")
+        # print(f"Fecha de Lanzamiento: {self.fecha_lanzamiento.strtime("%d-%m-%Y")}")
+        print("*"*30)
+
+    def dividir_titulo(self):
+        titulo = self.titulo.split(" | ")
+        self.colaborador = titulo[0]
+        self.sesion = titulo[1]
+
+        #Debe setear el atributo sesion y colaborador con los datos obtenidos del 
+        #titulo del video
+    
+    def obtener_codigo_url(self):
+        codigo = self.url_youtube.split("v=")
+        self.codigo_url = codigo[1]
+        print(codigo)
+        print(self.codigo_url)
+        #Debe setear el atributo codigo_url con el codigo obtenido del atributo url_youtube
+        #Por ej: si la url es https://www.youtube.com/watch?v=nicki13 
+        #el codigo seria nicki13
+    
+    def formatear_fecha(self):
+        fecha_datetime = datetime.strptime(self.fecha_lanzamiento, '%y-%m-%d')
+        fecha_sin_hora = fecha_datetime.date()
+        print(fecha_sin_hora)
+        #Necesitamos que la fecha de lanzamiento sea un objeto de la clase datetime (investigar).
+        #Para ello deberán dividir la fecha (en formato string) en dia, mes y año y a partir de 
+        #esos datos, crear la nueva fecha. 
